@@ -1,0 +1,2 @@
+nixOS configuration for **karasu**
+
