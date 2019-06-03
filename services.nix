@@ -42,6 +42,13 @@
       };
       desktopManager.gnome3.enable = true;
 
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+        };
+      };
+
       videoDrivers = [ "nvidia" ];
     };
 

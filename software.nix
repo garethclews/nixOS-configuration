@@ -5,35 +5,58 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
+    # basics
+    curl
     git
-    vim
     zsh
-    emacs
-    firefox
-    fira
-    fira-code-symbols
-    fira-mono
-    vanilla-dmz
-    plex
-    sonarr
-    libreoffice-fresh
-    spotify
-    discord
-    zlib
     rxvt_unicode
+    
+    # dev
+    vim
+    emacs
     gnumake
-    gcc
-    gimp
-    imagemagick
+    jq
+
+    # glitz
+    vanilla-dmz
+
+    # haskell
     ghc
     cabal-install
+
+    # not haskell
+    julia
+    R
+
+    # media
+    plex
+    sonarr
+    spotify
+
+    # comms
+    discord
+    gimp
+    imagemagick
+
+    # web office
+    libreoffice-fresh
+    gimp
+    firefox
   ];
 
   programs = {
     zsh.enable = true;
     bash.enableCompletion = true;
     tmux.enable = true;
-    adb.enable = true;
+  };
+
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      fira
+      fira-mono
+      fira-code-symbols
+    ];
   };
 }

@@ -9,6 +9,7 @@
     ./services.nix
     ./software.nix
     ./users.nix
+    # ./hydra.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
