@@ -41,6 +41,7 @@
         };
       };
       desktopManager.gnome3.enable = true;
+      desktopManager.xterm.enable = false;
 
       windowManager = {
         xmonad = {
@@ -63,5 +64,6 @@
     postgresql = {
       enable = true;
     };
+
   };
 }

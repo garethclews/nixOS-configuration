@@ -23,7 +23,8 @@
     # haskell
     ghc
     cabal-install
-
+    haskellPackages.ghcid
+    
     # not haskell
     julia
     R
