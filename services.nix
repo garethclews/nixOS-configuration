@@ -34,6 +34,13 @@
     xserver = {
       enable = true;
 
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+        };
+      };
+
       displayManager = {
         gdm = {
           enable = true;
@@ -42,13 +49,6 @@
       };
       desktopManager.gnome3.enable = true;
       desktopManager.xterm.enable = false;
-
-      windowManager = {
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-        };
-      };
 
       videoDrivers = [ "nvidia" ];
     };
