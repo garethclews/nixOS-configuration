@@ -9,15 +9,16 @@
     ./services.nix
     ./software.nix
     ./users.nix
-    # ./hydra.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
 
+  hardware.cpu.intel.updateMicrocode = true;
+
   i18n = {
-    consoleFont = "Lat2-Terminus12";
+    consoleFont = "Lat2-Terminus10";
     consoleKeyMap = "uk";
     defaultLocale = "en_GB.UTF-8";
   };

@@ -10,7 +10,8 @@
     git
     zsh
     rxvt_unicode
-    
+    fd    
+
     # dev
     vim
     emacs
@@ -58,6 +59,15 @@
       fira
       fira-mono
       fira-code-symbols
+      source-code-pro
     ];
+
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Fira Mono" "Source Code Pro" ];
+        sansSerif = [ "Fira Sans" ];
+        serif     = [ "Fira Sans" ];
+      };
+    };
   };
 }
