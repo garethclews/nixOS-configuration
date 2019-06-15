@@ -40,8 +40,17 @@
           wayland = false; # NVIDIA drivers don't support it :(
         };
       };
-      desktopManager.gnome3.enable = true;
-      desktopManager.xterm.enable = false;
+      desktopManager = {
+        gnome3.enable = true;
+        xterm.enable = false;
+      };
+
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+        };
+      };
 
       videoDrivers = [ "nvidia" ];
     };

@@ -11,6 +11,7 @@
     zsh
     rxvt_unicode
     fd    
+    libnotify
 
     # dev
     vim
@@ -59,12 +60,13 @@
       fira
       fira-mono
       fira-code-symbols
+      
       source-code-pro
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Fira Mono" "Source Code Pro" ];
+        monospace = [ "Fira Mono" "Source Code Pro" "TypIcons" ];
         sansSerif = [ "Fira Sans" ];
         serif     = [ "Fira Sans" ];
       };
