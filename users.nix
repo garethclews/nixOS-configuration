@@ -6,7 +6,7 @@
   users.defaultUserShell = "/var/run/current-system/sw/bin/zsh";
   users.users.aloysius = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "transmission" ];
+    extraGroups = [ "wheel" "transmission" "audio" ];
   };
 
   users.users.samboy = {

@@ -2,6 +2,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  # dconf enabler
+  programs.dconf.enable = true;
+
   # List services that you want to enable:
   services = {
     transmission = {
@@ -36,9 +39,14 @@
 
       displayManager = {
         gdm = {
-          enable = true;
+          enable = true; # true;
           wayland = false; # NVIDIA drivers don't support it :(
+	  
         };
+	lightdm = {
+	  enable = false;
+	  # other options
+	};
       };
       desktopManager = {
         gnome3.enable = true;
@@ -46,17 +54,23 @@
       };
 
       windowManager = {
-        xmonad = {
+	i3 = {
           enable = true;
-          enableContribAndExtras = true;
-        };
+          package = pkgs.i3-gaps;
+	  extraPackages = with pkgs; [
+	    rofi
+            i3status
+            i3lock-fancy
+            i3blocks
+	  ];
+	};
       };
 
       videoDrivers = [ "nvidia" ];
     };
 
     dbus = {
-      packages = with pkgs; [ gnome3.dconf ];
+      packages = [ pkgs.gnome3.dconf ];
     };
 
     gnome3 = {

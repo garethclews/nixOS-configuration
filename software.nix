@@ -30,6 +30,7 @@
     # not haskell
     julia
     R
+    python3
 
     # media
     plex
@@ -50,7 +51,10 @@
   programs = {
     zsh.enable = true;
     bash.enableCompletion = true;
-    tmux.enable = true;
+    tmux = {
+      enable = true;
+      newSession = true;
+    };
   };
 
   fonts = {
@@ -60,7 +64,7 @@
       fira
       fira-mono
       fira-code-symbols
-      
+      font-awesome-ttf
       source-code-pro
     ];
 
@@ -73,3 +77,4 @@
     };
   };
 }
+
