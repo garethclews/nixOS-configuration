@@ -6,33 +6,49 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # basics
+    binutils
     curl
+    dfc
+    editorconfig-core-c
     git
+    imagemagick
     zsh
     rxvt_unicode
     fd    
     libnotify
+    openssl
+    redshift
 
     # dev
-    vim
     emacs
     gnumake
     jq
+    meld
+    vim
 
     # glitz
+    cava
+    compton
+    dunst
+    gnome-themes-extra
+    inxi
+    paper-icon-theme
     vanilla-dmz
 
     # haskell
     ghc
     cabal-install
     haskellPackages.ghcid
+    hlint
     
     # not haskell
+    coq
     julia
     R
     python3
 
     # media
+    playerctl
     plex
     sonarr
     spotify
