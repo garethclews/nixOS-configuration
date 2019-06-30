@@ -1,6 +1,5 @@
 # systemd type operations
 { config, lib, pkgs, ... }:
-
 {
   # dconf enabler
   programs.dconf.enable = true;
@@ -64,13 +63,26 @@
             i3blocks
 	  ];
 	};
+
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+          extraPackages = haskellPackages: [
+            haskellPackages.xmonad-contrib
+            haskellPackages.xmonad-extras
+            haskellPackages.xmonad-screenshot
+            haskellPackages.xmonad-utils
+            haskellPackages.xmonad-volume
+            haskellPackages.xmonad
+          ];
+        };
       };
 
       videoDrivers = [ "nvidia" ];
     };
 
     dbus = {
-      packages = [ pkgs.gnome3.dconf ];
+      packages = [ pkgs.gutenprint pkgs.gnome3.dconf ];
     };
 
     gnome3 = {
@@ -79,6 +91,7 @@
 
     printing = {
       enable = true;
+      drivers = [ pkgs.gutenprint ];
     };
 
     postgresql = {

@@ -23,17 +23,25 @@
     emacs
     gnumake
     jq
+    yq
     meld
     vim
 
     # glitz
+    awesome
     cava
     compton
     dunst
+    dzen2
+    dmenu
+    font-awesome-ttf
     gnome-themes-extra
     inxi
+    lemonbar-xft
+    polybar
     paper-icon-theme
     vanilla-dmz
+    wmctrl
 
     # haskell
     ghc
@@ -46,12 +54,14 @@
     julia
     R
     python3
+    sqlite
 
     # media
     playerctl
     plex
     sonarr
     spotify
+    mpv
 
     # comms
     discord
