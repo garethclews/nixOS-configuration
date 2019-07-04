@@ -11,9 +11,14 @@
     ./users.nix
   ];
 
+  boot.cleanTmpDir = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = { 
+    useOSProber = true;
+    backgroundColor = "#2e3440";
+    font = "\${pkgs.fira-mono}/share/fonts/opentype/FiraMono-Regular.otf";
+  };
 
   hardware.cpu.intel.updateMicrocode = true;
 

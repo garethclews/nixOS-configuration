@@ -33,7 +33,7 @@
     compton
     dunst
     dzen2
-    dmenu
+    dmenu2
     font-awesome-ttf
     gnome-themes-extra
     inxi
@@ -42,6 +42,7 @@
     paper-icon-theme
     vanilla-dmz
     wmctrl
+    xscreensaver # see if this fixes need for `xset dpms`
 
     # haskell
     ghc
@@ -92,11 +93,12 @@
       fira-code-symbols
       font-awesome-ttf
       source-code-pro
+      dejavu_fonts
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Fira Mono" "Source Code Pro" "TypIcons" ];
+        monospace = [ "Fira Mono" "Iosevka Nerd Font" "Font Awesome" ];
         sansSerif = [ "Fira Sans" ];
         serif     = [ "Fira Sans" ];
       };
