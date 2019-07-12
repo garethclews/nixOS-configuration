@@ -35,6 +35,7 @@
 
     xserver = {
       enable = true;
+      layout = "gb";
 
       displayManager = {
         gdm = {

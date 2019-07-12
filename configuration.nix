@@ -21,6 +21,7 @@
   };
 
   hardware.cpu.intel.updateMicrocode = true;
+  hardware.bluetooth.enable = true;
 
   i18n = {
     consoleFont = "Lat2-Terminus10";
