@@ -21,6 +21,7 @@
 
     # dev
     emacs
+    gcc
     gnumake
     jq
     yq
@@ -42,7 +43,6 @@
     paper-icon-theme
     vanilla-dmz
     wmctrl
-    xscreensaver # see if this fixes need for `xset dpms`
 
     # haskell
     ghc

@@ -39,13 +39,23 @@
 
       displayManager = {
         gdm = {
-          enable = true; # true;
+          enable = false; # true;
           wayland = false; # NVIDIA drivers don't support it :(
-	  
         };
 	lightdm = {
-	  enable = false;
+	  enable = true;
+          background = "/media/dipper/Images/goat.jpg";
 	  # other options
+	  greeters.gtk = {
+            theme = {
+              package = pkgs.nordic;
+              name = "Nordic";
+            };
+            iconTheme = {
+              package = pkgs.paper-icon-theme;
+              name = "Paper";
+            };
+          };
 	};
       };
       desktopManager = {
@@ -88,6 +98,7 @@
 
     gnome3 = {
       gnome-keyring.enable = true;
+      seahorse.enable = true;
     };
 
     printing = {
