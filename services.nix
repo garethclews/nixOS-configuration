@@ -55,6 +55,10 @@
               package = pkgs.paper-icon-theme;
               name = "Paper";
             };
+            indicators = [ "~host" "~spacer" 
+                           "~clock" "~spacer" 
+                           "~session" "~a11y" "~power"
+                         ];
           };
 	};
       };

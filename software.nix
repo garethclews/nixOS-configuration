@@ -14,6 +14,7 @@
     imagemagick
     zsh
     rxvt_unicode
+    kitty
     fd    
     libnotify
     openssl
@@ -21,15 +22,12 @@
 
     # dev
     emacs
-    gcc
     gnumake
     jq
-    yq
     meld
     vim
 
     # glitz
-    awesome
     cava
     compton
     dunst
@@ -38,7 +36,7 @@
     font-awesome-ttf
     gnome-themes-extra
     inxi
-    lemonbar-xft
+    material-icons
     polybar
     paper-icon-theme
     vanilla-dmz
@@ -51,10 +49,7 @@
     hlint
     
     # not haskell
-    coq
     julia
-    R
-    python3
     sqlite
 
     # media
@@ -94,11 +89,12 @@
       font-awesome-ttf
       source-code-pro
       dejavu_fonts
+      material-icons 
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Fira Mono" "Iosevka Nerd Font" "Font Awesome" ];
+        monospace = [ "Fira Mono" "Iosevka Nerd Font" "Font Awesome" "Material Icons" ];
         sansSerif = [ "Fira Sans" ];
         serif     = [ "Fira Sans" ];
       };
