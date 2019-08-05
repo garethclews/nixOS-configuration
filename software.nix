@@ -25,6 +25,7 @@
     gnumake
     jq
     meld
+    python3
     vim
 
     # glitz
