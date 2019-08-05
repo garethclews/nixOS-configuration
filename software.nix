@@ -35,6 +35,7 @@
     dmenu2
     font-awesome-ttf
     gnome-themes-extra
+    gtk-engine-murrine
     inxi
     material-icons
     polybar
@@ -68,6 +69,7 @@
     libreoffice-fresh
     gimp
     firefox
+    texlive.combined.scheme-medium
   ];
 
   programs = {
