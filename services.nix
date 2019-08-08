@@ -72,9 +72,8 @@
           enable = true;
           package = pkgs.i3-gaps;
 	  extraPackages = with pkgs; [
-	    rofi
             i3status
-            i3lock-fancy
+            i3lock
             i3blocks
 	  ];
 	};
