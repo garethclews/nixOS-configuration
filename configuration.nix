@@ -14,7 +14,7 @@
   boot.cleanTmpDir = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = { 
+  boot.loader.grub = {
     useOSProber = true;
     backgroundColor = "#2e3440";
     font = "\${pkgs.fira-mono}/share/fonts/opentype/FiraMono-Regular.otf";
@@ -32,6 +32,7 @@
   time.timeZone = "Europe/London";
 
   security.hideProcessInformation = true;
+  security.pam.enableGnomeKeyring = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;

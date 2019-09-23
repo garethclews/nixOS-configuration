@@ -55,8 +55,8 @@
               package = pkgs.paper-icon-theme;
               name = "Paper";
             };
-            indicators = [ "~host" "~spacer" 
-                           "~clock" "~spacer" 
+            indicators = [ "~host" "~spacer"
+                           "~clock" "~spacer"
                            "~session" "~a11y" "~power"
                          ];
           };
@@ -101,7 +101,6 @@
 
     gnome3 = {
       gnome-keyring.enable = true;
-      seahorse.enable = true;
     };
 
     printing = {
