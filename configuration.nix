@@ -32,7 +32,6 @@
   time.timeZone = "Europe/London";
 
   security.hideProcessInformation = true;
-  security.pam.enableGnomeKeyring = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
