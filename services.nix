@@ -6,6 +6,12 @@
 
   # List services that you want to enable:
   services = {
+   
+    clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
+
     transmission = {
       enable = true;
       settings = {
@@ -97,10 +103,6 @@
 
     dbus = {
       packages = [ pkgs.gutenprint pkgs.gnome3.dconf ];
-    };
-
-    gnome3 = {
-      gnome-keyring.enable = true;
     };
 
     printing = {

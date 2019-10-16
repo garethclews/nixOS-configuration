@@ -49,6 +49,10 @@
     cabal-install
     haskellPackages.ghcid
     hlint
+
+    # lisps
+    clisp
+    sbcl
     
     # not haskell
     julia
@@ -70,7 +74,7 @@
     libreoffice-fresh
     gimp
     firefox
-    texlive.combined.scheme-medium
+    ispell
   ];
 
   programs = {
