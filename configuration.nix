@@ -37,7 +37,6 @@
   hardware.pulseaudio.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
   nix.gc.automatic = true;
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

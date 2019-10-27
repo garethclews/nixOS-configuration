@@ -1,6 +1,5 @@
 # software choices
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs,  ... }:
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -33,12 +32,12 @@
     compton
     dunst
     dzen2
-    dmenu2
     font-awesome-ttf
     gnome-themes-extra
     gtk-engine-murrine
     inxi
     material-icons
+    mononoki
     polybar
     paper-icon-theme
     vanilla-dmz
@@ -60,7 +59,6 @@
 
     # media
     playerctl
-    plex
     sonarr
     spotify
     mpv
@@ -97,11 +95,12 @@
       source-code-pro
       dejavu_fonts
       material-icons 
+      mononoki
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Fira Mono" "Iosevka Nerd Font" "Font Awesome" "Material Icons" ];
+        monospace = [ "Fira Mono" "Iosevka Nerd Font" "mononoki" "Font Awesome" "Material Icons" ];
         sansSerif = [ "Fira Sans" ];
         serif     = [ "Fira Sans" ];
       };

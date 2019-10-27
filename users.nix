@@ -8,7 +8,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "transmission" "audio" ];
   };
-  security.pam.services.aloysius.enableGnomeKeyring = true;
+  # security.pam.services.aloysius.enableGnomeKeyring = true;
 
 
   users.users.samboy = {

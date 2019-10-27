@@ -1,6 +1,8 @@
 # systemd type operations
 { config, lib, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+
   # dconf enabler
   programs.dconf.enable = true;
 
@@ -37,6 +39,10 @@
     plex = {
       enable = true;
       user = "aloysius";
+      package = (import (fetchTarball { 
+	url = "https://github.com/NixOS/nixpkgs/tarball/4cd2cb43fb3a87f48c1e10bb65aee99d8f24cb9d"; 
+	sha256 = "1d6rmq67kdg5gmk94wx2774qw89nvbhy6g1f2lms3c9ph37hways"; }) 
+        {config.allowUnfree = true; }).plex;
     };
 
     xserver = {
@@ -68,6 +74,7 @@
           };
 	};
       };
+
       desktopManager = {
         gnome3.enable = true;
         xterm.enable = false;
