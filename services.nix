@@ -40,9 +40,8 @@
       enable = true;
       user = "aloysius";
       package = (import (fetchTarball { 
-        # url = "https://github.com/NixOS/nixpkgs/tarball/471869c9185fb610e67940a701eb13b1cfb335a4";
         url = "https://github.com/NixOS/nixpkgs/tarball/c22e76e450a74ef5a027b9868c6f600d64b69909";
-        sha256 = "1klbclz8n4b9k1kfwv806bqdavld1mg32l1vxsmnrqzr6zck1c54"; 
+        sha256 = "0ji1rca0pmfma7qr4lllfgrks5am22lg0fdmr551vzdjx2rnksn0"; 
       }) {config.allowUnfree = true; }).plex;
     };
 

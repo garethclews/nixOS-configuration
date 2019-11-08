@@ -3,16 +3,18 @@
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.defaultUserShell = pkgs.zsh;
+  users = {
+    defaultUserShell = pkgs.zsh;
 
-  users.users.aloysius = {
-    isNormalUser = true;
-    isSystemUser = false;
-    extraGroups = [ "wheel" "transmission" "audio"];
-  };
+    users = {
+      aloysius = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "transmission" "audio" "plex" ];
+      };
 
-  users.users.samboy = {
-    isNormalUser = true;
-    isSystemUser = false;
+      samboy = {
+        isNormalUser = true;
+      };
+    };
   };
 }
