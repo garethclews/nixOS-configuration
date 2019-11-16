@@ -6,9 +6,9 @@
     ./hardware-configuration.nix
     ./drives.nix
     ./networking.nix
-    ./services.nix
     ./software.nix
     ./users.nix
+    ./services.nix
   ];
 
   boot.cleanTmpDir = true;
@@ -16,15 +16,22 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     useOSProber = true;
+    backgroundColor = "#2e3440";
+    font = "\${pkgs.fira-mono}/share/fonts/opentype/FiraMono-Regular.otf";
   };
 
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = false;
 
   time.timeZone = "Europe/London";
 
-  security.hideProcessInformation = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
+
+  i18n = {
+     consoleFont   = "Lat2-Terminus10";
+     consoleKeyMap = "uk";
+     defaultLocale = "en_GB.UTF-8";   
+  }; 
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;

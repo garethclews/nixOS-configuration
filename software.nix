@@ -12,7 +12,6 @@
     git
     imagemagick
     zsh
-    rxvt_unicode
     kitty
     fd    
     libnotify

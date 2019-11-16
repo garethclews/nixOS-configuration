@@ -3,9 +3,6 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  # dconf enabler
-  programs.dconf.enable = true;
-
   # List services that you want to enable:
   services = {
    
@@ -40,7 +37,7 @@
       enable = true;
       user = "aloysius";
       package = (import (fetchTarball { 
-        url = "https://github.com/NixOS/nixpkgs/tarball/c22e76e450a74ef5a027b9868c6f600d64b69909";
+        url = "https://github.com/NixOS/nixpkgs/tarball/a27a14da2a592402ecb89abc040700b2cf90d3c7";
         sha256 = "0ji1rca0pmfma7qr4lllfgrks5am22lg0fdmr551vzdjx2rnksn0"; 
       }) {config.allowUnfree = true; }).plex;
     };
@@ -54,11 +51,11 @@
           enable = false; # true;
           wayland = false; # NVIDIA drivers don't support it :(
         };
-	lightdm = {
-	  enable = true;
+        lightdm = {
+          enable = true;
           background = "/media/dipper/Images/goat.jpg";
-	  # other options
-	  greeters.gtk = {
+          # other options
+          greeters.gtk = {
             theme = {
               package = pkgs.nordic;
               name = "Nordic";
@@ -69,10 +66,9 @@
             };
             indicators = [ "~host" "~spacer"
                            "~clock" "~spacer"
-                           "~session" "~power"
-                         ];
+                           "~session" "~power" ];
           };
-	};
+        };
       };
 
       desktopManager = {
@@ -81,15 +77,14 @@
       };
 
       windowManager = {
-	i3 = {
+        i3 = {
           enable = true;
           package = pkgs.i3-gaps;
-	  extraPackages = with pkgs; [
+          extraPackages = with pkgs; [
             i3status
             i3lock-color
-            i3blocks
-	  ];
-	};
+            i3blocks ];
+        };
 
         xmonad = {
           enable = true;
@@ -108,12 +103,6 @@
       videoDrivers = [ "nvidia" ];
     };
 
-    gnome3.gnome-keyring.enable = true;
-
-    dbus = {
-      packages = [ pkgs.gutenprint pkgs.gnome3.dconf ];
-    };
-
     printing = {
       enable = true;
       drivers = [ pkgs.gutenprint ];
@@ -122,6 +111,5 @@
     postgresql = {
       enable = true;
     };
-
   };
 }
