@@ -22,10 +22,23 @@
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.bluetooth.enable = false;
+  hardware.sane.enable = true;
 
   time.timeZone = "Europe/London";
 
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+  # NOTE: security.pam.services.{lightdm,gdm}.enableGnomeKeyring don't work for me
+  security.pam.services = [ 
+    { name = "gnome_keyring";
+      text = ''
+        auth     optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
+        session  optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so auto_start
+        password  optional   ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
+      '';
+    }
+  ];
+
+
+
 
   i18n = {
      consoleFont   = "Lat2-Terminus10";

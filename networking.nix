@@ -9,7 +9,7 @@
       127.0.0.1 karasu
       '';
     firewall = {
-      enable = true;
+      enable = false;
       allowPing = false;
     };
   };

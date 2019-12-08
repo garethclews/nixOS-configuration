@@ -70,6 +70,7 @@
     # web office
     libreoffice-fresh
     gimp
+    keybase-gui
     firefox
     ispell
   ];
