@@ -18,6 +18,8 @@
     useOSProber = true;
     backgroundColor = "#2e3440";
     font = "\${pkgs.fira-mono}/share/fonts/opentype/FiraMono-Regular.otf";
+    gfxmodeEfi = "2560x1440";
+    splashImage = "/media/dipper/Images/tela.jpg";
   };
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -36,9 +38,6 @@
       '';
     }
   ];
-
-
-
 
   i18n = {
      consoleFont   = "Lat2-Terminus10";

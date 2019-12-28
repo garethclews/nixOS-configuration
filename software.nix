@@ -16,6 +16,8 @@
     fd    
     libnotify
     openssl
+    p7zip
+    ripgrep
     redshift
 
     # dev

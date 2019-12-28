@@ -10,7 +10,7 @@
     openvpn.servers = {
       home = { 
         config = '' 
-          config /root/.vpn/udp/uk971.nordvpn.com.udp.ovpn 
+          config /root/.vpn/udp/uk1479.nordvpn.com.udp.ovpn 
           auth-user-pass /root/.vpn/aloysius.key
         '';
       };
@@ -62,8 +62,8 @@
       enable = true;
       user = "aloysius";
       package = (import (fetchTarball { 
-        url = "https://github.com/NixOS/nixpkgs/tarball/88f24e842b9c3acd347410d17c2211551a20df8a";
-        sha256 = "0wi4n7xw1lw830d51yz420p7y7mrdh541z4yckqb9jgc4ar2jgf9";
+        url = "https://github.com/NixOS/nixpkgs/tarball/master";
+        sha256 = "13iyxl0qdz9bjdln9z54ddisr9g6rbsip1b7p7vs1jakg7cm7g1x";
       }) {config.allowUnfree = true; }).plex;
     };
 
@@ -79,27 +79,35 @@
         };
         lightdm = {
           enable = true;
-          background = "/media/dipper/Images/goat.jpg";
-          # other options
-          greeters.gtk = {
-            theme = {
-              package = pkgs.nordic;
-              name = "Nordic";
+          background = "/media/dipper/Images/tela.jpg";
+          greeters = {
+            gtk = {
+              theme = {
+	        package = pkgs.nordic;
+	        name = "Nordic";
+	      };
+              cursorTheme = {
+                package = pkgs.vanilla-dmz;
+                name =  "Vanilla-DMZ"; 
+              };
+	      iconTheme = {
+	        package = pkgs.paper-icon-theme;
+	        name = "Paper";
+	      };
+	      indicators = [ "~clock" "~spacer"
+	                     "~session" "~power" ];
             };
-            iconTheme = {
-              package = pkgs.paper-icon-theme;
-              name = "Paper";
+            enso = {
+              enable = false;
             };
-            indicators = [ "~host" "~spacer"
-                           "~clock" "~spacer"
-                           "~session" "~power" ];
           };
         };
       };
 
       desktopManager = {
         gnome3.enable = true;
-        xterm.enable = false;
+        # xfce.enable   = true;
+        xterm.enable  = false;
       };
 
       windowManager = {

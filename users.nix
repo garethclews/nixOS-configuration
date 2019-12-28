@@ -36,6 +36,7 @@ in
                          
                          gnome3.geary
  
+                         haskellPackages.brittany
                          haskellPackages.pandoc
                          haskellPackages.hoogle
 
