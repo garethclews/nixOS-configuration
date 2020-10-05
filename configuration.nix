@@ -3,10 +3,11 @@
 
 {
   imports = [
+    ./cachix.nix
     ./hardware-configuration.nix
     ./drives.nix
     ./networking.nix
-    ./software.nix
+    ./programs.nix
     ./users.nix
     ./services.nix
   ];
@@ -14,36 +15,18 @@
   boot.cleanTmpDir = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    useOSProber = true;
-    backgroundColor = "#2e3440";
-    font = "\${pkgs.fira-mono}/share/fonts/opentype/FiraMono-Regular.otf";
-    gfxmodeEfi = "2560x1440";
-    splashImage = "/media/dipper/Images/tela.jpg";
-  };
+  boot.loader.grub.useOSProber = true;
 
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.bluetooth.enable = false;
+  hardware.bluetooth.enable = true;
   hardware.sane.enable = true;
+  hardware.nvidia.modesetting.enable = true;
 
   time.timeZone = "Europe/London";
 
-  # NOTE: security.pam.services.{lightdm,gdm}.enableGnomeKeyring don't work for me
-  security.pam.services = [ 
-    { name = "gnome_keyring";
-      text = ''
-        auth     optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
-        session  optional    ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so auto_start
-        password  optional   ${pkgs.gnome3.gnome_keyring}/lib/security/pam_gnome_keyring.so
-      '';
-    }
-  ];
-
-  i18n = {
-     consoleFont   = "Lat2-Terminus10";
-     consoleKeyMap = "uk";
-     defaultLocale = "en_GB.UTF-8";   
-  }; 
+  console = {
+     keyMap = "uk";
+  };
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -54,6 +37,6 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
   system.autoUpgrade.enable = true;
 }

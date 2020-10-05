@@ -12,5 +12,10 @@
       device = "/dev/disk/by-label/dipper";
       fsType = "ntfs";
     };
+
+#    "none" = {
+#      device = "/swapfile";
+#      fsType = "swap";
+#    };
   };
 }

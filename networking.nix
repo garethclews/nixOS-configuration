@@ -3,6 +3,10 @@
 
 {
   networking = {
+    useDHCP = false;
+    interfaces = {
+     enp3s0.useDHCP = true;
+    };
     hostName = "karasu"; # Define your hostname.
     extraHosts =
       ''

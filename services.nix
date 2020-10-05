@@ -1,46 +1,59 @@
 # systemd type operations
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
   # List services that you want to enable:
   services = {
- 
+    udev.packages = [ pkgs.platformio ];
+
     # VPN
     openvpn.servers = {
-      home = { 
-        config = '' 
-          config /root/.vpn/udp/uk1479.nordvpn.com.udp.ovpn 
+      home = {
+        #uk
+        autoStart = true;
+        config = ''
+          config /root/.vpn/udp/uk1769.nordvpn.com.udp.ovpn
           auth-user-pass /root/.vpn/aloysius.key
+          auth-nocache
+        '';
+      };
+
+      muri = {
+        # us
+        autoStart = false;
+        config = ''
+          config /root/.vpn/udp/us5341.nordvpn.com.udp.ovpn
+          auth-user-pass /root/.vpn/aloysius.key
+          auth-nocache
         '';
       };
     };
-  
+
+    # lorri
+    lorri.enable = false;
+
     # antivirus
     clamav = {
       daemon.enable = true;
       updater.enable = true;
     };
 
-    # keybase stuff
-    keybase.enable = true;
-    kbfs.enable = true;
-
     # torrent
     transmission = {
       enable = true;
 
       user = "aloysius";
-      home = "/home/aloysius/Downloads/torrents";
+      home = "/home/aloysius";
       settings = {
-        blocklist-enabled = true;
         download-dir = "/home/aloysius/Downloads/torrents";
         incomplete-dir-enabled = false;
-        watch-dir-enabled = true;
-        watch-dir = "/home/aloysius/Downloads";
+        rename-partial-files = false;
+        #        watch-dir-enabled = true;
+        #        watch-dir = "/home/aloysius/Downloads";
         blocklist-url = "http://john.bitsurge.net/public/biglist.p2p.gz";
+        blocklist-enabled = true;
         peer-port-random-on-start = true;
-        encryption = 1;
+        encryption = 2;
         pex-enabled = true;
         port-forwarding-enabled = true;
         ratio-limit = 2;
@@ -49,7 +62,7 @@
         trash-original-torrent-files = true;
       };
     };
- 
+
     # media watchlist+snatcher
     sonarr = {
       enable = true;
@@ -61,10 +74,6 @@
     plex = {
       enable = true;
       user = "aloysius";
-      package = (import (fetchTarball { 
-        url = "https://github.com/NixOS/nixpkgs/tarball/master";
-        sha256 = "13iyxl0qdz9bjdln9z54ddisr9g6rbsip1b7p7vs1jakg7cm7g1x";
-      }) {config.allowUnfree = true; }).plex;
     };
 
     # glitz
@@ -74,31 +83,25 @@
 
       displayManager = {
         gdm = {
-          enable = false; # true;
-          wayland = false; # NVIDIA drivers don't support it :(
+          enable = false;
+          nvidiaWayland = true;
+          wayland = true;
         };
         lightdm = {
           enable = true;
           background = "/media/dipper/Images/tela.jpg";
           greeters = {
             gtk = {
-              theme = {
-	        package = pkgs.nordic;
-	        name = "Nordic";
-	      };
+              enable = true;
               cursorTheme = {
                 package = pkgs.vanilla-dmz;
-                name =  "Vanilla-DMZ"; 
+                name = "Vanilla-DMZ";
               };
-	      iconTheme = {
-	        package = pkgs.paper-icon-theme;
-	        name = "Paper";
-	      };
-	      indicators = [ "~clock" "~spacer"
-	                     "~session" "~power" ];
-            };
-            enso = {
-              enable = false;
+              iconTheme = {
+                package = pkgs.paper-icon-theme;
+                name = "Paper";
+              };
+              indicators = [ "~clock" "~spacer" "~session" "~power" ];
             };
           };
         };
@@ -106,20 +109,11 @@
 
       desktopManager = {
         gnome3.enable = true;
-        # xfce.enable   = true;
-        xterm.enable  = false;
+        xterm.enable = false;
       };
 
       windowManager = {
-        i3 = {
-          enable = true;
-          package = pkgs.i3-gaps;
-          extraPackages = with pkgs; [
-            i3status
-            i3lock-color
-            i3blocks ];
-        };
-
+        awesome.enable = true;
         xmonad = {
           enable = true;
           enableContribAndExtras = true;
@@ -138,10 +132,9 @@
     };
 
     # bus
-    dbus = { 
-      packages = [ pkgs.gutenprint pkgs.gnome3.dconf ];
-    };
-    gnome3.gnome-keyring.enable = true;
+    dbus = { packages = [ pkgs.gutenprint pkgs.gnome3.dconf ]; };
+
+    gnome3.sushi.enable = true;
 
     # system printing services
     printing = {
@@ -150,8 +143,6 @@
     };
 
     # databases
-    postgresql = {
-      enable = true;
-    };
+    postgresql = { enable = true; };
   };
 }

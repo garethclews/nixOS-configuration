@@ -1,41 +1,54 @@
 # software choices
-{ config, lib, pkgs,  ... }:
-{
+{ config, lib, pkgs, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # basics
+    bat   # cat with wings
     binutils
     curl
+    coreutils
     dfc
+    direnv
     editorconfig-core-c
+    jansson
+    jq
     git
+    gnupg
     imagemagick
     zsh
-    kitty
-    fd    
-    libnotify
-    openssl
+    zsh-autosuggestions
+    zsh-command-time
+    zsh-completions
+    zlib
     p7zip
+    fd
+    kitty
+    pass
+    openssl
     ripgrep
     redshift
+    trash-cli # never rm again!
 
     # dev
     emacs
+    gcc
     gnumake
+    clang
+    zlib
     jq
-    meld
-    python3
     vim
+    
+    ccls
 
     # glitz
     cava
-    compton
-    dunst
     dzen2
+    libnotify
     font-awesome-ttf
-    gnome-themes-extra
+    mplus-outline-fonts
     gtk-engine-murrine
+    i3lock-color
     inxi
     material-icons
     mononoki
@@ -47,44 +60,50 @@
     # haskell
     ghc
     cabal-install
-    haskellPackages.ghcid
+    cabal2nix
+    haskellPackages.haskell-language-server
+    #haskellPackages.ghcide
     hlint
 
     # lisps
     clisp
     sbcl
-    
+
     # not haskell
-    julia
+    # julia
     sqlite
+    python3
 
     # media
     playerctl
     sonarr
-    spotify
+    ffmpeg
     mpv
+    obs-studio
+    # appimage-run  # plexamp is in ~/.scripts
+    spotify
 
     # comms
-    discord
     gimp
     imagemagick
 
     # web office
     libreoffice-fresh
+    blender
+    inkscape
+    discord
     gimp
-    keybase-gui
     firefox
-    ispell
+    gnome3.geary
+    keybase-gui
+    texlive.combined.scheme-medium
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
   ];
 
-  programs = {
-    zsh.enable = true;
-    bash.enableCompletion = true;
-    tmux = {
-      enable = true;
-      newSession = true;
-    };
-  };
+  programs = { zsh.enable = true; };
 
   fonts = {
     enableFontDir = true;
@@ -94,17 +113,21 @@
       fira-mono
       fira-code-symbols
       font-awesome-ttf
-      source-code-pro
+      hasklig
+      ipafont
+      kochi-substitute
       dejavu_fonts
-      material-icons 
-      mononoki
+      material-icons
+      overpass
+      mplus-outline-fonts
     ];
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Fira Mono" "Iosevka Nerd Font" "mononoki" "Font Awesome" "Material Icons" ];
-        sansSerif = [ "Fira Sans" ];
-        serif     = [ "Fira Sans" ];
+        monospace =
+          [ "hasklig" "Iosevka Nerd Font" "Font Awesome" "Material Icons" ];
+        sansSerif = [ "Overpass" ];
+        serif = [ "Overpass" ];
       };
     };
   };
