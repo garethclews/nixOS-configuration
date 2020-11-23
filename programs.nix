@@ -4,7 +4,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # basics
-    bat   # cat with wings
+    bat # cat with wings
     binutils
     curl
     coreutils
@@ -22,6 +22,7 @@
     zsh-completions
     zlib
     p7zip
+    unzip
     fd
     kitty
     pass
@@ -38,7 +39,7 @@
     zlib
     jq
     vim
-    
+
     ccls
 
     # glitz
@@ -61,8 +62,6 @@
     ghc
     cabal-install
     cabal2nix
-    haskellPackages.haskell-language-server
-    #haskellPackages.ghcide
     hlint
 
     # lisps
@@ -80,8 +79,10 @@
     ffmpeg
     mpv
     obs-studio
-    # appimage-run  # plexamp is in ~/.scripts
+    appimage-run # plexamp is in ~/.scripts
     spotify
+    #(steam.override { nativeOnly = true; })
+    steam
 
     # comms
     gimp
@@ -95,8 +96,8 @@
     gimp
     firefox
     gnome3.geary
-    keybase-gui
     texlive.combined.scheme-medium
+    poppler
     aspell
     aspellDicts.en
     aspellDicts.en-computers
@@ -106,7 +107,7 @@
   programs = { zsh.enable = true; };
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       fira

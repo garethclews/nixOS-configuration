@@ -23,13 +23,15 @@
 
   time.timeZone = "Europe/London";
 
-  console = {
-     keyMap = "uk";
-  };
+  console = { keyMap = "uk"; };
   i18n.defaultLocale = "en_GB.UTF-8";
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  # steam compat
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
   nixpkgs.config.allowUnfree = true;
   nix.gc.automatic = true;

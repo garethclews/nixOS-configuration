@@ -27,16 +27,6 @@ let
       }
     ];
   };
-
-  rEnv = pkgs.rWrapper.override {
-    packages = with pkgs.rPackages; [
-      tidyverse
-      DescTools
-      styler
-      rmarkdown
-      knitr
-    ];
-  };
 in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -56,7 +46,7 @@ in {
           libvterm
           material-icons
           nixfmt
-          niv
+          # niv
           rtags
           numlockx
           tty-clock
@@ -89,12 +79,10 @@ in {
           arpack
           gnuplot
           openblas
-          liblapack
-          rEnv
 
           # media
-          ncmpcpp
-          mpc_cli
+          # ncmpcpp
+          # mpc_cli
           # appimage-run
 
           # steam
