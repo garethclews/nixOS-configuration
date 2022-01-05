@@ -6,8 +6,8 @@ let
     patches = builtins.map builtins.fetchurl [
       {
         url =
-          "https://tools.suckless.org/dmenu/patches/mouse-support/dmenu-mousesupport-4.9.diff";
-        sha256 = "04lj0wwa6gscw1l2s7iq59zzfxk1i160bxacpvp2klnl764hf4jy";
+          "https://tools.suckless.org/dmenu/patches/mouse-support/dmenu-mousesupport-5.0.diff";
+        sha256 = "1dp8dyyhjbcy5mwyzimg42jasvx8ciw7y7dw9pnzjya39pral3b9";
       }
       {
         url =
@@ -36,7 +36,6 @@ in {
         description = "Aloysius";
         createHome = true;
         home = "/home/aloysius";
-        group = "aloysius";
         extraGroups = [ "wheel" "audio" "transmission" "plex" "dialout" ];
         packages = with pkgs; [
           # generic
@@ -44,7 +43,6 @@ in {
           feh
           maim
           libvterm
-          material-icons
           nixfmt
           # niv
           rtags
@@ -52,15 +50,11 @@ in {
           tty-clock
           xclip
           xdotool
+          xorg.xwininfo  # for emacs everywhere
           wordnet
           xsettingsd
           obconf
-
-          # office
-          mu
-          isync
-          notmuch
-          afew
+          lm_sensors
 
           # gnome
           gnome3.gnome-session
@@ -80,15 +74,10 @@ in {
           gnuplot
           openblas
 
-          # media
-          # ncmpcpp
-          # mpc_cli
-          # appimage-run
-
-          # steam
+	  # engines
 
           # custom
-          dmenu-aloy
+ 	  dmenu-aloy
 
         ];
         shell = pkgs.zsh;

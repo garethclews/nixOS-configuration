@@ -5,9 +5,9 @@
   networking = {
     useDHCP = false;
     interfaces = {
-     enp4s0.useDHCP = true;
+     enp3s0.useDHCP = true;
     };
-    hostName = "karasu"; # Define your hostname.
+    hostName = "grunklestan"; # Define your hostname.
     extraHosts =
       ''
       127.0.0.1 karasu

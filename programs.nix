@@ -11,8 +11,6 @@
     dfc
     direnv
     editorconfig-core-c
-    jansson
-    jq
     git
     gnupg
     imagemagick
@@ -29,6 +27,7 @@
     openssl
     ripgrep
     redshift
+    sqlite
     trash-cli # never rm again!
 
     # dev
@@ -36,11 +35,7 @@
     gcc
     gnumake
     clang
-    zlib
-    jq
     vim
-
-    ccls
 
     # glitz
     cava
@@ -52,7 +47,6 @@
     i3lock-color
     inxi
     material-icons
-    mononoki
     polybar
     paper-icon-theme
     vanilla-dmz
@@ -61,63 +55,75 @@
     # haskell
     ghc
     cabal-install
-    cabal2nix
+    # cabal2nix
     hlint
 
     # lisps
-    clisp
-    sbcl
+    # clisp
+    # sbcl
 
     # not haskell
     # julia
-    sqlite
-    python3
+    # sqlite
 
     # media
     playerctl
     sonarr
     ffmpeg
     mpv
-    obs-studio
-    appimage-run # plexamp is in ~/.scripts
+    # obs-studio
+    # appimage-run # plexamp is in ~/.scripts
     spotify
-    #(steam.override { nativeOnly = true; })
-    steam
-
-    # comms
-    gimp
-    imagemagick
 
     # web office
     libreoffice-fresh
-    blender
-    inkscape
     discord
-    gimp
+    signal-desktop
     firefox
-    gnome3.geary
     texlive.combined.scheme-medium
     poppler
+    groff
+    ghostscript
+    graphviz
     aspell
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
   ];
 
-  programs = { zsh.enable = true; };
+  programs = {
+    zsh.enable = true;
+    steam.enable = true;
+
+    # get that new WM sorted
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true; # so that gtk works properly
+      extraOptions = [ "--my-next-gpu-wont-be-nvidia" ];
+      extraPackages = with pkgs; [
+        swaylock
+        swayidle
+        wl-clipboard
+        mako # notification daemon
+        alacritty # Alacritty is the default terminal in the config
+        dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+        wofi # gonna try it at least
+      ];
+    };
+  };
 
   fonts = {
-    fontDir.enable = true;
+    # fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      fira
-      fira-mono
-      fira-code-symbols
+      # fira
+      # fira-mono
+      # fira-code-symbols
       font-awesome-ttf
       hasklig
-      ipafont
-      kochi-substitute
-      dejavu_fonts
+      # ipafont
+      # kochi-substitute
+      # dejavu_fonts
       material-icons
       overpass
       mplus-outline-fonts
