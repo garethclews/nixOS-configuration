@@ -13,9 +13,9 @@
       fsType = "ntfs";
     };
 
-#    "none" = {
-#      device = "/swapfile";
-#      fsType = "swap";
-#    };
+    "/home" = {
+      device = "/dev/disk/by-label/soos";
+      fsType = "ext4";
+    };
   };
 }
