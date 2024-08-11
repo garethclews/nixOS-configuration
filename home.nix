@@ -69,23 +69,28 @@
     TERM = "kgx";
   };
   home.keyboard.layout = "uk";
-
+  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ"; 
+  gtk.cursorTheme = "Vanilla-DMZ";
+  
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   programs = {
+    home-manager.enable = true;
+
     emacs = {
       enable = true;
       extraPackages = epkgs: [ epkgs.vterm ];
     };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
     };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
     };
+
     firefox = { enable = true; };
   };
 

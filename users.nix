@@ -32,6 +32,10 @@
           arpack
           gnuplot
           openblas
+ 
+          # media
+          blanket
+          varia
         ];
         shell = pkgs.zsh;
         uid = 1000;

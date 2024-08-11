@@ -30,6 +30,7 @@
     trash-cli
     shfmt
 
+
     # dev
     emacs
     gcc
@@ -39,14 +40,13 @@
     ccls
     tidyp             # HTML code formatting
     stylelint         # CSS linter
-    
+
     # glitz
     font-awesome
     source-code-pro
     material-icons
-    paper-icon-theme
-    vanilla-dmz
-
+    # paper-icon-theme
+    # vanilla-dmz
 
     # haskell
     ghc
@@ -56,22 +56,12 @@
     haskellPackages.fourmolu
     pandoc
 
-
     # lisps
     # clisp
     # sbcl
 
-
-    # not haskell
-    julia
-    sqlite
-    python3
-    python3Packages.black
-    R
-
-
     # media
-    playerctl
+    # playerctl
     ffmpeg
     spotify
 
@@ -92,7 +82,6 @@
 
   programs = {
     zsh.enable = true;
-    sway.enable = true;
   };
 
   fonts = {

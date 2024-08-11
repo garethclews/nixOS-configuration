@@ -38,7 +38,7 @@
 
   i18n.defaultLocale = "en_GB.UTF-8";
   console.keyMap = "uk";
-  time.timeZone = "Europe/London";
+  # time.timeZone = "Europe/London";
 
   # system.copySystemConfiguration = true;  -- disabled for flake!
   nixpkgs.config.allowUnfree = true;
