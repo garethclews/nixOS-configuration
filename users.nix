@@ -5,11 +5,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     users = {
-      aloysius = {
+      g = {
         isNormalUser = true;
-        description = "Aloysius";
+        description = "Gareth";
         createHome = true;
-        home = "/home/aloysius";
+        home = "/home/g";
         extraGroups = [ "wheel" "audio" "transmission" "plex" "dialout" ];
         packages = with pkgs; [
           # generic
@@ -23,6 +23,8 @@
           haskellPackages.stylish-haskell
           haskellPackages.pandoc
           haskellPackages.hoogle
+          ghcid
+          treefmt
 
           # LSPs and linters
           shellcheck
@@ -35,7 +37,13 @@
  
           # media
           blanket
+          
+          # networking
           varia
+
+          # emacs everywhere
+          xdotool
+          xclip          
         ];
         shell = pkgs.zsh;
         uid = 1000;

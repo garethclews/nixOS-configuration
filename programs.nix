@@ -30,8 +30,8 @@
     trash-cli
     shfmt
 
-
     # dev
+    devenv
     emacs
     gcc
     gnumake
@@ -40,6 +40,7 @@
     ccls
     tidyp             # HTML code formatting
     stylelint         # CSS linter
+    just
 
     # glitz
     font-awesome
@@ -68,6 +69,8 @@
 
     # web office
     whatsapp-for-linux
+    languagetool
+    discord-canary
     firefox
     texlive.combined.scheme-medium
     poppler

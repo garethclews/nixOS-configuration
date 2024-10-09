@@ -7,7 +7,8 @@
     # udev.packages = [ pkgs.platformio ];
 
     # lorri
-    lorri.enable = true;
+    # lorri.enable = true;
+    # usurped by nix-direnv
 
     # glitz
     xserver = {
@@ -33,5 +34,11 @@
 
     # databases
     postgresql = { enable = true; };
+
+    # llms
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
   };
 }
